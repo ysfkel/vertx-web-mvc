@@ -1,0 +1,7 @@
+{% extends "../shared/layout.peb" %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+{% endblock %}
