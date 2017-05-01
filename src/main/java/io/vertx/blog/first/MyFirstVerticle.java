@@ -4,7 +4,7 @@ package io.vertx.blog.first;
  import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.mitchellbosecke.pebble.PebbleEngine;
+//import com.mitchellbosecke.pebble.PebbleEngine;
 
 // io.vertx.blog.first.MyFirstVerticle
 import io.vertx.core.AbstractVerticle;
@@ -17,7 +17,7 @@ import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.BodyHandler;
 import io.vertx.ext.web.handler.StaticHandler;
 import io.vertx.ext.web.templ.JadeTemplateEngine;
-//import io.vertx.ext.web.templ.PebbleTemplateEngine//te.ext.web.templ.PebbleTemplateEngine;
+import io.vertx.ext.web.templ.PebbleTemplateEngine;//te.ext.web.templ.PebbleTemplateEngine;
 
 public class MyFirstVerticle extends AbstractVerticle{
 
@@ -31,10 +31,10 @@ public class MyFirstVerticle extends AbstractVerticle{
 		  
 	      Router router=Router.router(vertx);
 	      // In order to use a template we first need to create an engine
-	    // final PebbleTemplateEngine engine = PebbleTemplateEngine.create(vertx);
+	   final PebbleTemplateEngine engine = PebbleTemplateEngine.create(vertx);
 	      // In order to use a template we first need to create an engine
-	    final JadeTemplateEngine engine = JadeTemplateEngine.create();
-	    //  PebbleEngine engine = new PebbleEngine.Builder().build();
+	   // final JadeTemplateEngine engine = JadeTemplateEngine.create();
+	     //PebbleEngine engine = new PebbleEngine.Builder().build();
 	      // and now delegate to the engine to render it.
 	   // Entry point to the application, this will render a custom template.
 	      router.get("/").handler(ctx -> {
@@ -42,7 +42,7 @@ public class MyFirstVerticle extends AbstractVerticle{
 	        ctx.put("name", "Vert.x Web");
 
 	        // and now delegate to the engine to render it.
-	        engine.render(ctx, "assets/home.jade", res -> {
+	        engine.render(ctx, "assets/views/home/index.peb", res -> {
 	          if (res.succeeded()) {
 	            ctx.response().end(res.result());
 	          } else {
