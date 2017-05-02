@@ -4,6 +4,10 @@ package io.vertx.blog.first;
  import java.util.LinkedHashMap;
 import java.util.Map;
 
+import Controllers.ArticlesController;
+import Controllers.HomeController;
+import Models.Book;
+
 //import com.mitchellbosecke.pebble.PebbleEngine;
 
 // io.vertx.blog.first.MyFirstVerticle
@@ -18,49 +22,49 @@ import io.vertx.ext.web.handler.BodyHandler;
 import io.vertx.ext.web.handler.StaticHandler;
 //import io.vertx.ext.web.templ.JadeTemplateEngine;
 import io.vertx.ext.web.templ.PebbleTemplateEngine;//te.ext.web.templ.PebbleTemplateEngine;
+import io.vertx.ext.web.templ.TemplateEngine;
 
 public class MyFirstVerticle extends AbstractVerticle{
 
     private Map<Integer,Book> books=new LinkedHashMap<>();
+    private HomeController home;
+    private ArticlesController articles;
     
 	  @Override
 	  public void start(Future<Void> future){
 		  seetData();
-
-     	  
 	      Router router=Router.router(vertx);
-	      // In order to use a template we first need to create an engine
-	   final PebbleTemplateEngine engine = PebbleTemplateEngine.create(vertx);
-	      // In order to use a template we first need to create an engine
-	   // final JadeTemplateEngine engine = JadeTemplateEngine.create();
-	     //PebbleEngine engine = new PebbleEngine.Builder().build();
-	      // and now delegate to the engine to render it.
-	   // Entry point to the application, this will render a custom template.
-	      router.get("/").handler(ctx -> {
-	        // we define a hardcoded title for our application
-	        ctx.put("name", "Vert.x Web");
 
-	        // and now delegate to the engine to render it.
-	        engine.render(ctx, "assets/app/server/views/home/index.peb", res -> {
-	          if (res.succeeded()) {
-	            ctx.response().end(res.result());
-	          } else {
-	            ctx.fail(res.cause());
-	          }
-	        });
-	      });
-	    
-	      
-//	       router.route("/home").handler(routingContext->{
-//	    	   HttpServerResponse response=routingContext.response();
-//	    	   response.putHeader("content-type","text/html")
-//	    	   .end("<h1>hello vertx web</h1>");
-//	       });
-	       
-	 	  api(router);
+	      // In order to use a template we first need to create an engine
+	       final PebbleTemplateEngine engine = PebbleTemplateEngine.create(vertx);
+	       //initialze controllers;
+	       iniControllers(engine,router);
+	       //configure routes 
+	       router.get("/").handler(home::Index);
+	       router.get("/articles").handler(articles::Index);
+            
+	 	   api(router);
 	       
 	       startServer(future,router);
 	  }
+	  
+	  private void iniControllers(TemplateEngine engine,Router router){
+		   home=new HomeController(engine,router);
+	       articles=new ArticlesController(engine,router);
+	  }
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
 	  
 	  private void seetData(){
 		    Book book=new Book("book 1","author 1");

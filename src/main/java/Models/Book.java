@@ -1,4 +1,5 @@
-package io.vertx.blog.first;
+package Models;
+
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -44,3 +45,4 @@ public class Book {
 	
 
 }
+
