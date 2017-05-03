@@ -1,4 +1,5 @@
-package Controllers;
+package com.gulfnews.controllers;
+
 import io.vertx.core.AsyncResult;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.ext.web.Router;
@@ -33,7 +34,5 @@ public class HomeController {
 	          }
 	        
 	}
-	
-
 
 }
