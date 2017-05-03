@@ -1,5 +1,6 @@
-/home/ykelo/Documents/Projects/vertx/vertx-web/src/main/java/com/gulfnews/config/RoutesConfig.java
-/home/ykelo/Documents/Projects/vertx/vertx-web/src/main/java/com/gulfnews/controllers/ArticlesController.java
-/home/ykelo/Documents/Projects/vertx/vertx-web/src/main/java/com/gulfnews/controllers/HomeController.java
-/home/ykelo/Documents/Projects/vertx/vertx-web/src/main/java/com/gulfnews/Startup.java
-/home/ykelo/Documents/Projects/vertx/vertx-web/src/main/java/com/gulfnews/verticles/App.java
+/Users/yusufkelo/Documents/DEVELOPER/VERTX/vertx-web-mvc/src/main/java/com/gulfnews/controllers/ArticlesController.java
+/Users/yusufkelo/Documents/DEVELOPER/VERTX/vertx-web-mvc/src/main/java/com/gulfnews/config/RoutesConfig.java
+/Users/yusufkelo/Documents/DEVELOPER/VERTX/vertx-web-mvc/src/main/java/com/gulfnews/models/Article.java
+/Users/yusufkelo/Documents/DEVELOPER/VERTX/vertx-web-mvc/src/main/java/com/gulfnews/controllers/HomeController.java
+/Users/yusufkelo/Documents/DEVELOPER/VERTX/vertx-web-mvc/src/main/java/com/gulfnews/Startup.java
+/Users/yusufkelo/Documents/DEVELOPER/VERTX/vertx-web-mvc/src/main/java/com/gulfnews/verticles/App.java

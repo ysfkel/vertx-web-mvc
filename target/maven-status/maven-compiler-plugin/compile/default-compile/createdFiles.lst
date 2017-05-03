@@ -1,0 +1,6 @@
+com/gulfnews/Startup.class
+com/gulfnews/verticles/App.class
+com/gulfnews/controllers/HomeController.class
+com/gulfnews/controllers/ArticlesController.class
+com/gulfnews/models/Article.class
+com/gulfnews/config/RoutesConfig.class
